@@ -7,6 +7,7 @@
 //
 
 #import "InboxViewController.h"
+#import <Parse/Parse.h>
 
 @interface InboxViewController ()
 
@@ -22,13 +23,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self performSegueWithIdentifier:@"doSegue" sender:self];
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser){
+        NSLog(@"Current User: %@", currentUser.username);
+    } else {
+        [self performSegueWithIdentifier:@"doSegue" sender:self];
+    }
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 
@@ -46,9 +51,20 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self performSegueWithIdentifier:@"doSegue" sender:self];
+    //[self performSegueWithIdentifier:@"doSegue" sender:self];
 }
 
 
 
+- (IBAction)logout:(id)sender {
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"doSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"doSegue"]) {
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    }
+}
 @end

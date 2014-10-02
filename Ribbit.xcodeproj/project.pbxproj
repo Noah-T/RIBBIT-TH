@@ -30,6 +30,8 @@
 		DE5B17EC19DCC54500A92150 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B17EB19DCC54500A92150 /* Security.framework */; };
 		DE5B17EE19DCC54F00A92150 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B17ED19DCC54F00A92150 /* StoreKit.framework */; };
 		DE5B17F019DCC55600A92150 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B17EF19DCC55600A92150 /* SystemConfiguration.framework */; };
+		DE653E6919DDE94B006F9356 /* EditFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */; };
+		DE653E6C19DDFC41006F9356 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE653E6B19DDFC41006F9356 /* FriendsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,10 @@
 		DE5B17EB19DCC54500A92150 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DE5B17ED19DCC54F00A92150 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DE5B17EF19DCC55600A92150 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DE653E6719DDE94B006F9356 /* EditFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFriendsViewController.h; sourceTree = "<group>"; };
+		DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFriendsViewController.m; sourceTree = "<group>"; };
+		DE653E6A19DDFC41006F9356 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		DE653E6B19DDFC41006F9356 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,10 @@
 				DE2C4AEA19DCB1EE00DF3DF7 /* ViewController.h */,
 				DE2C4AEB19DCB1EE00DF3DF7 /* ViewController.m */,
 				DE2C4AED19DCB1EE00DF3DF7 /* Main.storyboard */,
+				DE653E6A19DDFC41006F9356 /* FriendsViewController.h */,
+				DE653E6B19DDFC41006F9356 /* FriendsViewController.m */,
+				DE653E6719DDE94B006F9356 /* EditFriendsViewController.h */,
+				DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */,
 				DE5B17D319DCBA4F00A92150 /* SignupViewController.h */,
 				DE5B17D419DCBA4F00A92150 /* SignupViewController.m */,
 				DE5B17D019DCBA0300A92150 /* LoginViewController.h */,
@@ -298,6 +308,8 @@
 				DE2C4AEC19DCB1EE00DF3DF7 /* ViewController.m in Sources */,
 				DE2C4AE919DCB1EE00DF3DF7 /* AppDelegate.m in Sources */,
 				DE2C4AE619DCB1EE00DF3DF7 /* main.m in Sources */,
+				DE653E6C19DDFC41006F9356 /* FriendsViewController.m in Sources */,
+				DE653E6919DDE94B006F9356 /* EditFriendsViewController.m in Sources */,
 				DE2C4B0B19DCB30100DF3DF7 /* InboxViewController.m in Sources */,
 				DE5B17D219DCBA0300A92150 /* LoginViewController.m in Sources */,
 			);
