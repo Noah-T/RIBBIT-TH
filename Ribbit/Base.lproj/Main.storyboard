@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTL-J4-341">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -179,6 +180,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="179" y="170" width="43" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="login:" destination="0rK-AX-lmc" eventType="touchUpInside" id="feQ-s7-C3V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-f8-ine">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -223,6 +227,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Qg2-Ol-yZd"/>
+                    <connections>
+                        <outlet property="passwordField" destination="V3Y-Mi-JkF" id="xnU-5P-v6v"/>
+                        <outlet property="usernameField" destination="1Pe-dc-Dxv" id="HJM-rY-1ua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnY-lj-Ee9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,9 +322,6 @@
                                 <exclude reference="MGa-aV-mkB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ERP-0l-le9"/>
-                                <exclude reference="bSf-6C-k5f"/>
-                                <exclude reference="ibC-Kg-R5b"/>
                                 <exclude reference="1yH-Hp-D9A"/>
                                 <exclude reference="Eu7-D3-nH0"/>
                                 <exclude reference="VmM-Ay-HsW"/>
@@ -325,6 +330,9 @@
                                 <exclude reference="AOn-y1-Gjm"/>
                                 <exclude reference="PGC-ga-IfV"/>
                                 <exclude reference="S3l-2d-XWv"/>
+                                <exclude reference="ERP-0l-le9"/>
+                                <exclude reference="bSf-6C-k5f"/>
+                                <exclude reference="ibC-Kg-R5b"/>
                                 <exclude reference="auQ-SR-ZrI"/>
                                 <exclude reference="eOZ-sJ-Jh3"/>
                                 <exclude reference="oUE-m7-Bcv"/>
@@ -339,9 +347,6 @@
                                 <include reference="MGa-aV-mkB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ERP-0l-le9"/>
-                                <include reference="bSf-6C-k5f"/>
-                                <include reference="ibC-Kg-R5b"/>
                                 <include reference="1yH-Hp-D9A"/>
                                 <include reference="Eu7-D3-nH0"/>
                                 <include reference="VmM-Ay-HsW"/>
@@ -350,6 +355,9 @@
                                 <include reference="AOn-y1-Gjm"/>
                                 <include reference="PGC-ga-IfV"/>
                                 <include reference="S3l-2d-XWv"/>
+                                <include reference="ERP-0l-le9"/>
+                                <include reference="bSf-6C-k5f"/>
+                                <include reference="ibC-Kg-R5b"/>
                                 <include reference="auQ-SR-ZrI"/>
                                 <include reference="eOZ-sJ-Jh3"/>
                                 <include reference="oUE-m7-Bcv"/>
