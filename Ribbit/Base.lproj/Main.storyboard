@@ -104,6 +104,7 @@
             <objects>
                 <tableViewController id="Tu0-EV-Ps6" customClass="EditFriendsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zcj-MG-oCo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -142,14 +143,15 @@
             </objects>
             <point key="canvasLocation" x="546" y="1122"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="BWb-A3-b6U">
             <objects>
-                <tableViewController id="nUa-n5-rr8" sceneMemberID="viewController">
+                <tableViewController id="nUa-n5-rr8" customClass="CameraViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ohU-wP-zWW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QfO-Mt-Ynb">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -163,7 +165,7 @@
                             <outlet property="delegate" destination="nUa-n5-rr8" id="0d3-kH-1i1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="mo3-VF-0p9"/>
+                    <navigationItem key="navigationItem" id="mo3-VF-0p9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ek8-Ak-z6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

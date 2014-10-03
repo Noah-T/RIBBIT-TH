@@ -32,6 +32,7 @@
 		DE5B17F019DCC55600A92150 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B17EF19DCC55600A92150 /* SystemConfiguration.framework */; };
 		DE653E6919DDE94B006F9356 /* EditFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */; };
 		DE653E6C19DDFC41006F9356 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE653E6B19DDFC41006F9356 /* FriendsViewController.m */; };
+		DE89AD1019DE246E00933F92 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE89AD0F19DE246E00933F92 /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFriendsViewController.m; sourceTree = "<group>"; };
 		DE653E6A19DDFC41006F9356 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		DE653E6B19DDFC41006F9356 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		DE89AD0E19DE246E00933F92 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		DE89AD0F19DE246E00933F92 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 				DE653E6B19DDFC41006F9356 /* FriendsViewController.m */,
 				DE653E6719DDE94B006F9356 /* EditFriendsViewController.h */,
 				DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */,
+				DE89AD0E19DE246E00933F92 /* CameraViewController.h */,
+				DE89AD0F19DE246E00933F92 /* CameraViewController.m */,
 				DE5B17D319DCBA4F00A92150 /* SignupViewController.h */,
 				DE5B17D419DCBA4F00A92150 /* SignupViewController.m */,
 				DE5B17D019DCBA0300A92150 /* LoginViewController.h */,
@@ -310,6 +315,7 @@
 				DE2C4AE619DCB1EE00DF3DF7 /* main.m in Sources */,
 				DE653E6C19DDFC41006F9356 /* FriendsViewController.m in Sources */,
 				DE653E6919DDE94B006F9356 /* EditFriendsViewController.m in Sources */,
+				DE89AD1019DE246E00933F92 /* CameraViewController.m in Sources */,
 				DE2C4B0B19DCB30100DF3DF7 /* InboxViewController.m in Sources */,
 				DE5B17D219DCBA0300A92150 /* LoginViewController.m in Sources */,
 			);
@@ -438,8 +444,10 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Ribbit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -452,8 +460,10 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Ribbit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
