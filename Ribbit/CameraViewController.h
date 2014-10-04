@@ -17,6 +17,9 @@
 @property (strong, nonatomic) PFRelation *friendsRelation;
 @property (strong, nonatomic) NSMutableArray *recipients;
 
+-(void)uploadMessage;
+-(UIImage *)resizeImage:(UIImage *)image toWidth:(float)width andHeight:(float)height;
+
 - (IBAction)cancel:(id)sender;
 
 - (IBAction)send:(id)sender;

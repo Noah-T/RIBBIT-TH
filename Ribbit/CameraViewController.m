@@ -182,19 +182,120 @@
 
 #pragma mark - IBActions
 
-//- (IBAction)cancel:(id)sender {
-//    self.image = nil;
-//    self.videoFilePath = nil;
-//    [self.recipients removeAllObjects];
-//    [self.tabBarController setSelectedIndex:0];
-//}
-
-//- (IBAction)send:(id)sender {
-//    NSLog(@"send, yo");
-//}
 - (IBAction)cancel:(id)sender {
+    [self reset];
+    [self.tabBarController setSelectedIndex:0];
 }
 
 - (IBAction)send:(id)sender {
+    
+    //length check also covers nil:
+    /////length 0 wouldn't be nil, but would be a length of 0
+    
+    //if there is an image with a value of nil and no video, show an alert, and then go back to the camera
+    if (self.image == nil && self.videoFilePath.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Try again!" message:@"Please capture or select a photo or video to share!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        [self presentViewController:self.imagePicker animated:NO completion:nil];
+    } else {
+        [self uploadMessage];
+        
+        [self.tabBarController setSelectedIndex:0];
+    }
 }
+
+#pragma mark - Helper Methods
+
+- (void)reset {
+    self.image = nil;
+    self.videoFilePath = nil;
+    [self.recipients removeAllObjects];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image toWidth:(float)width andHeight:(float)height
+{
+    //this works with the passed in parameters: set a size equal to the width and height passed in
+    CGSize newSize = CGSizeMake(width, height);
+    //something new I learned about CGRect:
+    //it basically makes two points: 1. x and y coordinates for upper left 2. x and y coordinates for bottom right. It's smart enough to fill in the rest from here
+    
+    //convert the passed in size to a rectangle
+    CGRect newRectangle = CGRectMake(0, 0, width, height);
+    
+    //create an image context based on the passed in size
+    UIGraphicsBeginImageContext(newSize);
+    
+    //take the passed in image and draw it onto a rectangle of the passed in size
+    //(resize image to passed in dimensions)
+    [image drawInRect:newRectangle];
+    
+    //get the image from the current image context
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    //this must be used anytime beginImagecontext is used
+    UIGraphicsEndImageContext();
+    
+    //return the final value
+    return resizedImage;
+}
+
+- (void)uploadMessage
+{
+    NSData *fileData;
+    NSString *fileName;
+    NSString *fileType;
+    if (self.image != nil) {
+        
+        //if it's an image
+        UIImage *newImage = [self resizeImage:self.image toWidth:320.0f andHeight:480.0f];
+        
+        //pass the resized image to fileData
+        fileData = UIImagePNGRepresentation(newImage);
+        fileName = @"image.png";
+        fileType = @"image";
+    } else {
+        //if it's a video
+        fileData = [NSData dataWithContentsOfFile:self.videoFilePath];
+        fileName = @"movie.mov";
+        fileType = @"video";
+    }
+    
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+
+
+        if (error) {
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"An error occurred!" message:@"Please try sending your message again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+
+        } else {
+            //note Messages with a capital "M". Start with captal letter, use camelCase
+            PFObject *message = [PFObject objectWithClassName:@"Messages"];
+            [message setObject:file forKey:@"file"];
+            [message setObject:fileType forKey:@"fileType"];
+            [message setObject:self.recipients forKey:@"recipientIds"];
+            [message setObject:[[PFUser currentUser]objectId] forKey:@"senderId"];
+            [message setObject:[[PFUser currentUser]username] forKey:@"senderName"];
+            [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"An error occurred!" message:@"Please try sending your message again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alertView show];
+                } else {
+                    //Everything was successful!
+                    //this is a safe place to reset, otherwise it could interfere with asynchronous syncing
+                    //it will also preserve image/video and receipients if the failure is on the backend
+                    
+                    
+                    [self reset];
+                    
+                }
+                
+            }];
+        }
+    }];
+    
+}
+
+
 @end
