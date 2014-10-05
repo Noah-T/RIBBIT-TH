@@ -33,26 +33,68 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //all messages have the messages class
+    
+    //create a query class to search through all messages
+    PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+    //find messages where the current user id is included in the recipient field
+    [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser]objectId]];
+    
+    //sort so that the most recent messages are at the top
+     [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@ %@", error, error.userInfo );
+        } else {
+            //returned values from the query (objects) are stored in the local property self.messages
+            self.messages = objects;
+            
+            //reflect this change in the table
+            [self.tableView reloadData];
+            NSLog(@"Retrieved %lu messages", (unsigned long)self.messages.count);
+        }
+    }];
+     
+}
+
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return self.messages.count;
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[self performSegueWithIdentifier:@"doSegue" sender:self];
+    PFObject *message = [self.messages objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = [message objectForKey:@"senderName"];
+    
+    NSString *fileType = [message objectForKey:@"fileType"];
+    
+    if ([fileType isEqualToString:@"image"]) {
+        cell.imageView.image = [UIImage imageNamed:@"icon_image"];
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"icon_video"];
+    }
+    
+    return cell;
 }
+
+
 
 
 

@@ -285,9 +285,18 @@
                     //Everything was successful!
                     //this is a safe place to reset, otherwise it could interfere with asynchronous syncing
                     //it will also preserve image/video and receipients if the failure is on the backend
-                    
-                    
-                    [self reset];
+                    sleep(4);
+                    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
+                   hud.mode = MBProgressHUDModeAnnularDeterminate;
+                    hud.labelText = @"Message Sent";
+                    NSLog(@"success");
+                    [self.view addSubview:hud];
+
+                    [hud show:YES];
+                    sleep(2);
+                    [hud show:NO];
+
+                                        [self reset];
                     
                 }
                 
