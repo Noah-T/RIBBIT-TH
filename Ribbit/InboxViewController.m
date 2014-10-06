@@ -7,7 +7,8 @@
 //
 
 #import "InboxViewController.h"
-#import <Parse/Parse.h>
+
+#import "ImageViewController.h"
 
 @interface InboxViewController ()
 
@@ -94,6 +95,20 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedMessage = [self.messages objectAtIndex:indexPath.row];
+    
+    NSString *fileType = [self.selectedMessage objectForKey:@"fileType"];
+    
+    if ([fileType isEqualToString:@"image"]) {
+        [self performSegueWithIdentifier:@"showImage" sender:self];
+    } else {
+
+    }
+
+}
+
 
 
 
@@ -107,6 +122,11 @@
 {
     if ([segue.identifier isEqualToString:@"doSegue"]) {
         [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+    } else if ([segue.identifier isEqualToString:@"showImage"]){
+        //hide the bottom bar from the tab bar controller
+        [segue.destinationViewController setHidesBottomBarWhenPushed:YES];
+        ImageViewController *imageViewController = (ImageViewController *)segue.destinationViewController;
+        imageViewController.message = self.selectedMessage;
     }
 }
 @end

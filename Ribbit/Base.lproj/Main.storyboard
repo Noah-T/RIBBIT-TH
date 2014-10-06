@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-570" y="405"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="K7V-u3-UFf">
             <objects>
-                <viewController id="rjf-IS-weI" sceneMemberID="viewController">
+                <viewController id="rjf-IS-weI" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eaL-uu-N4f"/>
                         <viewControllerLayoutGuide type="bottom" id="orO-jV-pkm"/>
@@ -37,8 +37,30 @@
                     <view key="view" contentMode="scaleToFill" id="3ez-r7-dzi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lbp-yi-vfg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="7" width="400" height="600"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Lbp-yi-vfg"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Lbp-yi-vfg"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="0sh-mB-g8J"/>
+                    <connections>
+                        <outlet property="imageView" destination="Lbp-yi-vfg" id="Hge-Q8-to9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvo-ZU-PVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,6 +100,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="0rK-AX-lmc" kind="push" identifier="doSegue" id="bPd-Zd-Fhj"/>
+                        <segue destination="rjf-IS-weI" kind="push" identifier="showImage" id="UZR-7W-ZTl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDs-5q-kO0" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -36,6 +36,8 @@
 		DE89AD1019DE246E00933F92 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE89AD0F19DE246E00933F92 /* CameraViewController.m */; };
 		DEADE32819E1062E0091A5E4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEADE32719E1062E0091A5E4 /* Accounts.framework */; };
 		DEADE32A19E107170091A5E4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEADE32919E107170091A5E4 /* Social.framework */; };
+		DEBABED319E1F4BD008AF7CE /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBABED219E1F4BD008AF7CE /* ImageViewController.m */; };
+		DEBABED519E201DE008AF7CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBABED419E201DE008AF7CE /* Foundation.framework */; };
 		DEC3EF2719E101C200B72221 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC3EF2519E101C200B72221 /* TemplateIcon2x.png */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,9 @@
 		DE89AD0F19DE246E00933F92 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		DEADE32719E1062E0091A5E4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		DEADE32919E107170091A5E4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		DEBABED119E1F4BD008AF7CE /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		DEBABED219E1F4BD008AF7CE /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		DEBABED419E201DE008AF7CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DEC3EF2519E101C200B72221 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		F9619B605FFD9F292A885F97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEBABED519E201DE008AF7CE /* Foundation.framework in Frameworks */,
 				DEADE32A19E107170091A5E4 /* Social.framework in Frameworks */,
 				DEADE32819E1062E0091A5E4 /* Accounts.framework in Frameworks */,
 				DE5B17F019DCC55600A92150 /* SystemConfiguration.framework in Frameworks */,
@@ -171,6 +177,8 @@
 				DE2C4AEA19DCB1EE00DF3DF7 /* ViewController.h */,
 				DE2C4AEB19DCB1EE00DF3DF7 /* ViewController.m */,
 				DE2C4AED19DCB1EE00DF3DF7 /* Main.storyboard */,
+				DEBABED119E1F4BD008AF7CE /* ImageViewController.h */,
+				DEBABED219E1F4BD008AF7CE /* ImageViewController.m */,
 				DE653E6A19DDFC41006F9356 /* FriendsViewController.h */,
 				DE653E6B19DDFC41006F9356 /* FriendsViewController.m */,
 				DE653E6719DDE94B006F9356 /* EditFriendsViewController.h */,
@@ -220,6 +228,7 @@
 		DE5B17DA19DCC4D100A92150 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEBABED419E201DE008AF7CE /* Foundation.framework */,
 				DEADE32919E107170091A5E4 /* Social.framework */,
 				DEADE32719E1062E0091A5E4 /* Accounts.framework */,
 				DE5B17EF19DCC55600A92150 /* SystemConfiguration.framework */,
@@ -376,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEBABED319E1F4BD008AF7CE /* ImageViewController.m in Sources */,
 				DE5B17D519DCBA4F00A92150 /* SignupViewController.m in Sources */,
 				DE2C4AEC19DCB1EE00DF3DF7 /* ViewController.m in Sources */,
 				DE2C4AE919DCB1EE00DF3DF7 /* AppDelegate.m in Sources */,

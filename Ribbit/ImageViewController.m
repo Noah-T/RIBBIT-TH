@@ -8,6 +8,8 @@
 
 #import "ImageViewController.h"
 
+
+
 @interface ImageViewController ()
 
 @end
@@ -16,13 +18,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //this returns a url string
+    PFFile *imageFile = [self.message objectForKey:@"file"];
+    
+    NSURL *imageFileUrl = [[NSURL alloc]initWithString:imageFile.url];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
+    
+     self.imageView.image = [UIImage imageWithData:imageData];
+    
+    NSString *senderName = [self.message objectForKey:@"senderName"];
+    NSString *title = [NSString stringWithFormat:@"Sent from %@", senderName];
+    self.navigationItem.title = title;
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"viewDidAppear");
+    if ([self respondsToSelector:@selector(timeOut)]) {
+        NSLog(@"does respond");
+        [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeOut) userInfo:nil repeats:NO];
+
+    }
+    
+ 
+
 }
+
+
+#pragma mark - Helper Methods
+
+-(void)timeOut {
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"pop");
+    
+}
+    
+    
+
+
 
 /*
 #pragma mark - Navigation
