@@ -7,8 +7,8 @@
 //
 
 #import "InboxViewController.h"
-
 #import "ImageViewController.h"
+
 
 @interface InboxViewController ()
 
@@ -16,49 +16,49 @@
 
 @implementation InboxViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.moviePlayer = [[MPMoviePlayerController alloc] init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser){
-        NSLog(@"Current User: %@", currentUser.username);
-    } else {
-        [self performSegueWithIdentifier:@"doSegue" sender:self];
     }
-    
-    
-}
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     //all messages have the messages class
     
-    //create a query class to search through all messages
-    PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
-    //find messages where the current user id is included in the recipient field
-    [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser]objectId]];
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        NSLog(@"Current user: %@", currentUser.username);
+        //create a query class to search through all messages
+        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+        //find messages where the current user id is included in the recipient field
+        [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser]objectId]];
+        
+        //sort so that the most recent messages are at the top
+        [query orderByDescending:@"createdAt"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@ %@", error, error.userInfo );
+            } else {
+                //returned values from the query (objects) are stored in the local property self.messages
+                self.messages = objects;
+                
+                //reflect this change in the table
+                [self.tableView reloadData];
+                NSLog(@"Retrieved %lu messages", (unsigned long)self.messages.count);
+            }
+        }];
+
+    }
+    else {
+        [self performSegueWithIdentifier:@"doSegue" sender:self];
+    }
+
     
-    //sort so that the most recent messages are at the top
-     [query orderByDescending:@"createdAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@ %@", error, error.userInfo );
-        } else {
-            //returned values from the query (objects) are stored in the local property self.messages
-            self.messages = objects;
-            
-            //reflect this change in the table
-            [self.tableView reloadData];
-            NSLog(@"Retrieved %lu messages", (unsigned long)self.messages.count);
-        }
-    }];
-     
+    
 }
 
 
@@ -66,13 +66,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     // Return the number of rows in the section.
     return self.messages.count;
 }
@@ -104,9 +104,41 @@
     if ([fileType isEqualToString:@"image"]) {
         [self performSegueWithIdentifier:@"showImage" sender:self];
     } else {
-
+        
+        //show video here
+        PFFile *videoFile = [self.selectedMessage objectForKey:@"file"];
+        NSURL *fileUrl = [NSURL URLWithString:videoFile.url];
+        self.moviePlayer.contentURL = fileUrl;
+        
+        //gets movie ready, probably some caching
+        [self.moviePlayer prepareToPlay];
+        [self.moviePlayer requestThumbnailImagesAtTimes:@[@0] timeOption:MPMovieTimeOptionNearestKeyFrame];
+        
+        //movie player is added as a subview, not as a modal view controller
+        [self.view addSubview:self.moviePlayer.view];
+        
+        //setFullScreen must be called after it's added to view
+        [self.moviePlayer setFullscreen:YES animated:YES];
     }
+    
+    NSMutableArray *recipientIds = [NSMutableArray arrayWithArray:[self.selectedMessage objectForKey:@"recipientIds"]];
+    NSLog(@"Recipients: %d", recipientIds.count);
+    
+    if(recipientIds.count == 1){
+        //delete it
 
+        [self.selectedMessage deleteInBackground];
+        [self.tableView reloadData];
+    } else {
+
+        //remove recipient from recipient list (locally)
+        [recipientIds removeObject:[[PFUser currentUser]objectId]];
+
+        //take the locally updated recipient list and save it to the object on Parse
+        [self.selectedMessage setObject:recipientIds forKey:@"recipientIds"];
+        [self.selectedMessage saveInBackground];
+    }
+    
 }
 
 

@@ -33,6 +33,7 @@
 		DE5B17F019DCC55600A92150 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B17EF19DCC55600A92150 /* SystemConfiguration.framework */; };
 		DE653E6919DDE94B006F9356 /* EditFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */; };
 		DE653E6C19DDFC41006F9356 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE653E6B19DDFC41006F9356 /* FriendsViewController.m */; };
+		DE69F62A19E2F5F000EA509D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE69F62919E2F5F000EA509D /* MediaPlayer.framework */; };
 		DE89AD1019DE246E00933F92 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE89AD0F19DE246E00933F92 /* CameraViewController.m */; };
 		DEADE32819E1062E0091A5E4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEADE32719E1062E0091A5E4 /* Accounts.framework */; };
 		DEADE32A19E107170091A5E4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEADE32919E107170091A5E4 /* Social.framework */; };
@@ -92,6 +93,7 @@
 		DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFriendsViewController.m; sourceTree = "<group>"; };
 		DE653E6A19DDFC41006F9356 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		DE653E6B19DDFC41006F9356 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		DE69F62919E2F5F000EA509D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		DE89AD0E19DE246E00933F92 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		DE89AD0F19DE246E00933F92 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		DEADE32719E1062E0091A5E4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -108,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE69F62A19E2F5F000EA509D /* MediaPlayer.framework in Frameworks */,
 				DEBABED519E201DE008AF7CE /* Foundation.framework in Frameworks */,
 				DEADE32A19E107170091A5E4 /* Social.framework in Frameworks */,
 				DEADE32819E1062E0091A5E4 /* Accounts.framework in Frameworks */,
@@ -228,6 +231,7 @@
 		DE5B17DA19DCC4D100A92150 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE69F62919E2F5F000EA509D /* MediaPlayer.framework */,
 				DEBABED419E201DE008AF7CE /* Foundation.framework */,
 				DEADE32919E107170091A5E4 /* Social.framework */,
 				DEADE32719E1062E0091A5E4 /* Accounts.framework */,
