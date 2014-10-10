@@ -29,6 +29,8 @@
     [super viewWillAppear:animated];
     //all messages have the messages class
     
+    self.navigationController.navigationBarHidden = NO;
+    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         NSLog(@"Current user: %@", currentUser.username);

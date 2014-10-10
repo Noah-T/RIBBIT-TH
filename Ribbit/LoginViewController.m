@@ -19,8 +19,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //hide the back button on the login screen
-    self.navigationItem.hidesBackButton = YES;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //this will also affect other controllers in the navigation stack (sign up)
+    self.navigationController.navigationBarHidden = YES;
+
 }
 
 - (void)didReceiveMemoryWarning {

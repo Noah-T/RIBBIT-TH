@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTL-J4-341">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTL-J4-341">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -252,33 +250,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-dc-Dxv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dTp-kk-lRV">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="606"/>
+                                </variation>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-dc-Dxv">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="94" width="368" height="30"/>
+                                    <rect key="frame" x="16" y="216" width="368" height="44"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRo-sj-Pod">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRo-sj-Pod">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.29803921568627451" green="0.20392156862745098" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="179" y="170" width="43" height="30"/>
+                                    <rect key="frame" x="80" y="308" width="240" height="40"/>
                                 </variation>
                                 <connections>
                                     <action selector="login:" destination="0rK-AX-lmc" eventType="touchUpInside" id="feQ-s7-C3V"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3Y-Mi-JkF">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="263" width="368" height="44"/>
+                                </variation>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-f8-ine">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="278" y="208" width="55" height="30"/>
+                                    <rect key="frame" x="248" y="548" width="55" height="44"/>
                                 </variation>
                                 <connections>
                                     <segue destination="dMP-p1-H8w" kind="push" id="OvK-7F-rGn"/>
@@ -286,43 +304,39 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4G-lp-5FX">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="67" y="212" width="183" height="20.5"/>
+                                    <rect key="frame" x="98" y="548" width="183" height="44"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3Y-Mi-JkF">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="132" width="368" height="30"/>
-                                </variation>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="dTp-kk-lRV"/>
                                 <exclude reference="1Pe-dc-Dxv"/>
                                 <exclude reference="eRo-sj-Pod"/>
+                                <exclude reference="V3Y-Mi-JkF"/>
                                 <exclude reference="RX5-f8-ine"/>
                                 <exclude reference="U4G-lp-5FX"/>
-                                <exclude reference="V3Y-Mi-JkF"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="dTp-kk-lRV"/>
                                 <include reference="1Pe-dc-Dxv"/>
                                 <include reference="eRo-sj-Pod"/>
+                                <include reference="V3Y-Mi-JkF"/>
                                 <include reference="RX5-f8-ine"/>
                                 <include reference="U4G-lp-5FX"/>
-                                <include reference="V3Y-Mi-JkF"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Qg2-Ol-yZd"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="passwordField" destination="V3Y-Mi-JkF" id="xnU-5P-v6v"/>
                         <outlet property="usernameField" destination="1Pe-dc-Dxv" id="HJM-rY-1ua"/>
@@ -363,105 +377,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePQ-6O-rmw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-lN-YcS">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="-7" width="400" height="614"/>
+                                </variation>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePQ-6O-rmw">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="208" width="368" height="44"/>
+                                </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79r-re-SzI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79r-re-SzI">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="255" width="368" height="44"/>
+                                </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T41-YR-96G">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T41-YR-96G">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="302" width="368" height="44"/>
+                                </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGa-aV-mkB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yB-gM-Yrh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" image="icon_x">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="338" y="20" width="44" height="44"/>
+                                </variation>
+                                <connections>
+                                    <action selector="dismiss:" destination="dMP-p1-H8w" eventType="touchUpInside" id="HD9-93-bab"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGa-aV-mkB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.20392156859999999" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="348" width="240" height="40"/>
+                                </variation>
                                 <connections>
                                     <action selector="signup:" destination="dMP-p1-H8w" eventType="touchUpInside" id="e9Q-Y3-TVS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="79r-re-SzI" firstAttribute="trailing" secondItem="m1f-OJ-n3F" secondAttribute="trailingMargin" id="1yH-Hp-D9A"/>
-                            <constraint firstItem="T41-YR-96G" firstAttribute="leading" secondItem="m1f-OJ-n3F" secondAttribute="leadingMargin" id="3sg-zf-TBh"/>
-                            <constraint firstItem="T41-YR-96G" firstAttribute="top" secondItem="79r-re-SzI" secondAttribute="bottom" constant="8" id="AOn-y1-Gjm"/>
-                            <constraint firstItem="ePQ-6O-rmw" firstAttribute="trailing" secondItem="m1f-OJ-n3F" secondAttribute="trailingMargin" id="ERP-0l-le9"/>
-                            <constraint firstItem="79r-re-SzI" firstAttribute="leading" secondItem="m1f-OJ-n3F" secondAttribute="leadingMargin" id="Eu7-D3-nH0"/>
-                            <constraint firstItem="T41-YR-96G" firstAttribute="top" secondItem="79r-re-SzI" secondAttribute="bottom" constant="8" id="PGC-ga-IfV"/>
-                            <constraint firstItem="T41-YR-96G" firstAttribute="trailing" secondItem="m1f-OJ-n3F" secondAttribute="trailingMargin" id="S3l-2d-XWv"/>
-                            <constraint firstItem="79r-re-SzI" firstAttribute="top" secondItem="ePQ-6O-rmw" secondAttribute="bottom" constant="8" id="VmM-Ay-HsW"/>
-                            <constraint firstItem="MGa-aV-mkB" firstAttribute="leading" secondItem="m1f-OJ-n3F" secondAttribute="leadingMargin" constant="157" id="auQ-SR-ZrI">
-                                <variation key="widthClass=compact" constant="100"/>
-                            </constraint>
-                            <constraint firstItem="ePQ-6O-rmw" firstAttribute="leading" secondItem="m1f-OJ-n3F" secondAttribute="leadingMargin" id="bSf-6C-k5f"/>
-                            <constraint firstItem="MGa-aV-mkB" firstAttribute="top" secondItem="T41-YR-96G" secondAttribute="bottom" constant="8" id="eOZ-sJ-Jh3"/>
-                            <constraint firstItem="79r-re-SzI" firstAttribute="top" secondItem="ePQ-6O-rmw" secondAttribute="bottom" constant="8" id="gRd-n1-rHB"/>
-                            <constraint firstItem="ePQ-6O-rmw" firstAttribute="top" secondItem="IpR-3Z-G7k" secondAttribute="bottom" constant="30" id="ibC-Kg-R5b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MGa-aV-mkB" secondAttribute="trailing" constant="156" id="oUE-m7-Bcv">
-                                <variation key="widthClass=compact" constant="100"/>
-                            </constraint>
-                            <constraint firstItem="MGa-aV-mkB" firstAttribute="top" secondItem="T41-YR-96G" secondAttribute="bottom" constant="8" id="zwQ-SS-rF0"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="FFj-lN-YcS"/>
                                 <exclude reference="ePQ-6O-rmw"/>
                                 <exclude reference="79r-re-SzI"/>
                                 <exclude reference="T41-YR-96G"/>
+                                <exclude reference="3yB-gM-Yrh"/>
                                 <exclude reference="MGa-aV-mkB"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="1yH-Hp-D9A"/>
-                                <exclude reference="Eu7-D3-nH0"/>
-                                <exclude reference="VmM-Ay-HsW"/>
-                                <exclude reference="gRd-n1-rHB"/>
-                                <exclude reference="3sg-zf-TBh"/>
-                                <exclude reference="AOn-y1-Gjm"/>
-                                <exclude reference="PGC-ga-IfV"/>
-                                <exclude reference="S3l-2d-XWv"/>
-                                <exclude reference="ERP-0l-le9"/>
-                                <exclude reference="bSf-6C-k5f"/>
-                                <exclude reference="ibC-Kg-R5b"/>
-                                <exclude reference="auQ-SR-ZrI"/>
-                                <exclude reference="eOZ-sJ-Jh3"/>
-                                <exclude reference="oUE-m7-Bcv"/>
-                                <exclude reference="zwQ-SS-rF0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="FFj-lN-YcS"/>
                                 <include reference="ePQ-6O-rmw"/>
                                 <include reference="79r-re-SzI"/>
                                 <include reference="T41-YR-96G"/>
+                                <include reference="3yB-gM-Yrh"/>
                                 <include reference="MGa-aV-mkB"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="1yH-Hp-D9A"/>
-                                <include reference="Eu7-D3-nH0"/>
-                                <include reference="VmM-Ay-HsW"/>
-                                <include reference="gRd-n1-rHB"/>
-                                <include reference="3sg-zf-TBh"/>
-                                <include reference="AOn-y1-Gjm"/>
-                                <include reference="PGC-ga-IfV"/>
-                                <include reference="S3l-2d-XWv"/>
-                                <include reference="ERP-0l-le9"/>
-                                <include reference="bSf-6C-k5f"/>
-                                <include reference="ibC-Kg-R5b"/>
-                                <include reference="auQ-SR-ZrI"/>
-                                <include reference="eOZ-sJ-Jh3"/>
-                                <include reference="oUE-m7-Bcv"/>
-                                <include reference="zwQ-SS-rF0"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="TMj-YG-N53"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailAddressField" destination="T41-YR-96G" id="Bv8-fj-OdU"/>
                         <outlet property="passwordField" destination="79r-re-SzI" id="hQd-KW-xBJ"/>
@@ -476,6 +478,8 @@
     <resources>
         <image name="camera" width="33" height="24"/>
         <image name="friends" width="40" height="24"/>
+        <image name="icon_x" width="11" height="11"/>
         <image name="inbox" width="32" height="21"/>
+        <image name="loginBackground" width="320" height="480"/>
     </resources>
 </document>

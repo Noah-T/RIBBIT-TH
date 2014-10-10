@@ -17,14 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.friendsRelation = [[PFUser currentUser]objectForKey:@"friendsRelation"];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 
 {
     
-
+    //putting the friendsRelation here makes it so it will be refreshed every time the view appears
+    self.friendsRelation = [[PFUser currentUser]objectForKey:@"friendsRelation"];
     PFQuery *query = [self.friendsRelation query];
     [query orderByAscending:@"username"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

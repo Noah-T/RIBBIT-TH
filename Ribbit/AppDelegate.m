@@ -17,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //sleep for 1.5 without blocking the main thread
+    [NSThread sleepForTimeInterval:1.5];
     [Parse setApplicationId:@"J8coVdeK4qQ5caknkVPTtpVYdLw2Bnt4gi1AOIR0"
                   clientKey:@"mafeP37zwEmFrVBGm9Ok7vcRUqPety2I1b9b5KRj"];
     return YES;

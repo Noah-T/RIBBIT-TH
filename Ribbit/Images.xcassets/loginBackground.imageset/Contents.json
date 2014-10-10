@@ -3,16 +3,23 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "icon_video.png"
+      "filename" : "loginBackground.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "icon_video@2x.png"
+      "filename" : "loginBackground@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "loginBackground-568h@2x.png",
+      "unassigned" : true,
+      "subtype" : "retina4",
+      "scale" : "2x"
     }
   ],
   "info" : {
