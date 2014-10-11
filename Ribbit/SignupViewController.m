@@ -19,7 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //iphone 5 image
+    if ([UIScreen mainScreen].bounds.size.height == 568) {
+        self.backgroundImageView.image = [UIImage imageNamed:@"loginBackground"];
+    }
 }
+
 
 
 -(IBAction)signup:(id)sender
