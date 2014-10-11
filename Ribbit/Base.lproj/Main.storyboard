@@ -243,9 +243,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-a7-FjS">
                                 <rect key="frame" x="0.0" y="0.0" width="329" height="576"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRo-sj-Pod">
-                                        <rect key="frame" x="44" y="324" width="240" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRo-sj-Pod">
+                                        <rect key="frame" x="44" y="311" width="240" height="40"/>
                                         <color key="backgroundColor" red="0.29803921568627451" green="0.20392156862745098" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="UWp-oH-JKk"/>
+                                            <constraint firstAttribute="width" constant="240" id="jub-ah-hl3"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,19 +258,37 @@
                                             <action selector="login:" destination="0rK-AX-lmc" eventType="touchUpInside" id="feQ-s7-C3V"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3Y-Mi-JkF">
-                                        <rect key="frame" x="20" y="280" width="288" height="44"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-dc-Dxv">
+                                        <rect key="frame" x="20" y="219" width="288" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-dc-Dxv">
-                                        <rect key="frame" x="20" y="228" width="288" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="aSe-r4-c9c"/>
+                                            <constraint firstAttribute="width" constant="288" id="pyN-MR-6uQ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3Y-Mi-JkF">
+                                        <rect key="frame" x="20" y="266" width="288" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="288" id="8Qb-6X-U92"/>
+                                            <constraint firstAttribute="height" constant="44" id="cuV-3i-kbm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eRo-sj-Pod" secondAttribute="trailing" constant="44.5" id="6Ov-zg-lC3"/>
+                                    <constraint firstItem="eRo-sj-Pod" firstAttribute="top" secondItem="V3Y-Mi-JkF" secondAttribute="bottom" constant="1" id="DMQ-p0-3Ph"/>
+                                    <constraint firstAttribute="centerX" secondItem="1Pe-dc-Dxv" secondAttribute="centerX" id="Esz-a9-VPr"/>
+                                    <constraint firstAttribute="centerY" secondItem="V3Y-Mi-JkF" secondAttribute="centerY" id="SkK-t6-6VZ"/>
+                                    <constraint firstItem="eRo-sj-Pod" firstAttribute="leading" secondItem="t1j-a7-FjS" secondAttribute="leading" constant="44.5" id="Vwj-KD-6Hl"/>
+                                    <constraint firstAttribute="centerX" secondItem="eRo-sj-Pod" secondAttribute="centerX" id="Y6f-ez-6cO"/>
+                                    <constraint firstAttribute="centerX" secondItem="V3Y-Mi-JkF" secondAttribute="centerX" id="dkv-eu-9pI"/>
+                                    <constraint firstItem="V3Y-Mi-JkF" firstAttribute="top" secondItem="1Pe-dc-Dxv" secondAttribute="bottom" constant="1" id="rUW-MP-Cyd"/>
+                                </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-f8-ine">
                                 <rect key="frame" x="214" y="524" width="55" height="44"/>
