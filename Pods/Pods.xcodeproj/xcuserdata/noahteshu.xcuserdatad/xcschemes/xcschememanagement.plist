@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>80A5072DF3EB434EADEFFA21</key>
+		<key>9656B118D678EF9A3907941D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0C5D0CD49A09D379730156E</key>
+		<key>96A914E788B893214A29BDBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1F5DE222C9BCB492A865E63</key>
 		<dict>
 			<key>primary</key>
 			<true/>

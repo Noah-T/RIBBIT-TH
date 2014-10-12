@@ -23,8 +23,7 @@
         self.backgroundImageView.image = [UIImage imageNamed:@"loginBackground"]; //-568h
     }
 
-    
-    
+        
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -71,4 +70,9 @@
         }];
     }
 }
+
+
+
+
+
 @end
