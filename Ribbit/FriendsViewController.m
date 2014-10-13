@@ -8,6 +8,7 @@
 
 #import "FriendsViewController.h"
 #import "EditFriendsViewController.h"
+#import "GravatarUrlBuilder.h"
 
 @interface FriendsViewController ()
 
@@ -73,6 +74,41 @@
     PFUser *user = [self.friends objectAtIndex:indexPath.row];
     
     cell.textLabel.text = user.username;
+    
+    //all lowercase names is because it's a C struct
+    //get the main queue
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    //dispatch asynchronously to that queue
+    dispatch_async(queue, ^{
+        //1. get email address
+        //user represents user for given row
+        NSString *email = [user objectForKey:@"email"];
+        
+        //2. create the md5 hash
+        //note: md5 hashes are not secure enough to trust with sensitive data
+        //this is a profile picture, so...good enough for this. Just something to be aware of.
+        //get gravatar url associated with email address
+        NSURL *gravatarUrl = [GravatarUrlBuilder getGravatarUrl:email];
+        
+        //3. request image from Gravatar
+        NSData *imageData = [NSData dataWithContentsOfURL:gravatarUrl];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (imageData != nil) {
+                //4. set image in cell
+                cell.imageView.image = [UIImage imageWithData:imageData];
+                //refresh the cell to add the image
+                [cell setNeedsLayout];
+            }
+            
+            
+        });
+        
+
+    });
+    
+    //default image for if gravatar is unable to find image for user
+    //if gravatar does find an image, it will write over this 
+    cell.imageView.image = [UIImage imageNamed:@"icon_person"];
     return cell;
     
 }

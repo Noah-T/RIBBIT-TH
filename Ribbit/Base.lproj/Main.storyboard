@@ -10,10 +10,11 @@
             <objects>
                 <tabBarController id="cTL-J4-341" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="EsD-Vp-xpA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabBarBackground" selectionIndicatorImage="tabBarSelectedBackground" id="EsD-Vp-xpA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="Dla-wZ-VTO" kind="relationship" relationship="viewControllers" id="t6w-ej-AYx"/>
@@ -498,6 +499,8 @@
         <image name="icon_x" width="11" height="11"/>
         <image name="inbox" width="32" height="21"/>
         <image name="loginBackground" width="320" height="480"/>
+        <image name="tabBarBackground" width="1" height="1"/>
+        <image name="tabBarSelectedBackground" width="107" height="49"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

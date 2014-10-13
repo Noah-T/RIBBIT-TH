@@ -8,6 +8,7 @@
 
 #import "InboxViewController.h"
 #import "ImageViewController.h"
+#import "MSCellAccessory.h"
 
 
 @interface InboxViewController ()
@@ -22,7 +23,15 @@
     
     self.moviePlayer = [[MPMoviePlayerController alloc] init];
     
+    
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    
+    //call retrieveMessages when refresh control is pulled
+    [self.refreshControl addTarget:self action:@selector(retrieveMessages) forControlEvents:UIControlEventValueChanged];
+    
+    
     }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -34,25 +43,7 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         NSLog(@"Current user: %@", currentUser.username);
-        //create a query class to search through all messages
-        PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
-        //find messages where the current user id is included in the recipient field
-        [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser]objectId]];
-        
-        //sort so that the most recent messages are at the top
-        [query orderByDescending:@"createdAt"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (error) {
-                NSLog(@"Error: %@ %@", error, error.userInfo );
-            } else {
-                //returned values from the query (objects) are stored in the local property self.messages
-                self.messages = objects;
-                
-                //reflect this change in the table
-                [self.tableView reloadData];
-                NSLog(@"Retrieved %lu messages", (unsigned long)self.messages.count);
-            }
-        }];
+        [self retrieveMessages];
 
     }
     else {
@@ -85,6 +76,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.textLabel.text = [message objectForKey:@"senderName"];
+    
+    UIColor *disclosureColor = [UIColor colorWithRed:0.553 green:0.439 blue:0.718 alpha:1.0];
+    cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_DISCLOSURE_INDICATOR color:disclosureColor];
+    
     
     NSString *fileType = [message objectForKey:@"fileType"];
     
@@ -124,7 +119,7 @@
     }
     
     NSMutableArray *recipientIds = [NSMutableArray arrayWithArray:[self.selectedMessage objectForKey:@"recipientIds"]];
-    NSLog(@"Recipients: %d", recipientIds.count);
+    NSLog(@"Recipients: %lu", (unsigned long)recipientIds.count);
     
     if(recipientIds.count == 1){
         //delete it
@@ -163,4 +158,35 @@
         imageViewController.message = self.selectedMessage;
     }
 }
+
+
+#pragma mark - Helper methods
+- (void)retrieveMessages
+{
+    //create a query class to search through all messages
+    PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
+    //find messages where the current user id is included in the recipient field
+    [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser]objectId]];
+    
+    //sort so that the most recent messages are at the top
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@ %@", error, error.userInfo );
+        } else {
+            //returned values from the query (objects) are stored in the local property self.messages
+            self.messages = objects;
+            
+            //reflect this change in the table
+            [self.tableView reloadData];
+            NSLog(@"Retrieved %lu messages", (unsigned long)self.messages.count);
+        }
+        //remember, this is nested in a completion block for the query to parse
+        //if it's completed and the control is still refreshing, manually stop the process 
+        if ([self.refreshControl isRefreshing]) {
+            [self.refreshControl endRefreshing];
+        }
+    }];
+}
+
 @end

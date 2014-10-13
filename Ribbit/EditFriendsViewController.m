@@ -7,6 +7,7 @@
 //
 
 #import "EditFriendsViewController.h"
+#import "MSCellAccessory.h"
 
 
 @interface EditFriendsViewController ()
@@ -14,6 +15,12 @@
 @end
 
 @implementation EditFriendsViewController
+
+
+//declared up here to make it easier to share
+//this is a global variable
+//doesn't have setters and getters synthesized, just accessible throughout this particular implementation file
+UIColor *disclosureColor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +37,9 @@
         }
     }];
     self.currentUser = [PFUser currentUser];
+    
+    disclosureColor = [UIColor colorWithRed:0.553 green:0.439 blue:0.718 alpha:1.0];
+    
     
 }
 
@@ -56,11 +66,11 @@
     cell.textLabel.text = user.username;
     
     if ([self isFriend:user]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_CHECKMARK color:disclosureColor];
     } else {
         //this is necessary because of the way iOS reuses cells
         //it sounds like a checkmark from a reused stay could carry over, if this wasn't implemented
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = nil;
     }
     
     return cell;
@@ -81,7 +91,7 @@
     
     if ([self isFriend:user]) {
         //1. remove checkmark
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = nil;
         //2. remove from the array of friends
         for (PFUser *friend in self.friends) {
             if([friend.objectId isEqualToString:user.objectId]){
@@ -91,7 +101,7 @@
         }
         [friendsRelation removeObject:user];
     } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = [MSCellAccessory accessoryWithType:FLAT_CHECKMARK color:disclosureColor];
         //locally add the user to the friends array
         [self.friends addObject:user];
         

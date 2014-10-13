@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FA106E6E3B1AA2E559A15BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9619B605FFD9F292A885F97 /* libPods.a */; };
+		DE1A160F19EB467200434B2A /* GravatarUrlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A160E19EB467200434B2A /* GravatarUrlBuilder.m */; };
 		DE25E25519E7697A003B201E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DE25E25419E7697A003B201E /* Podfile */; };
 		DE2C4AE619DCB1EE00DF3DF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2C4AE519DCB1EE00DF3DF7 /* main.m */; };
 		DE2C4AE919DCB1EE00DF3DF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2C4AE819DCB1EE00DF3DF7 /* AppDelegate.m */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		1A0B48D14A95FA0A5430C1BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		41BD38F6F77057A6359D10E4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DE1A160D19EB467200434B2A /* GravatarUrlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravatarUrlBuilder.h; sourceTree = "<group>"; };
+		DE1A160E19EB467200434B2A /* GravatarUrlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravatarUrlBuilder.m; sourceTree = "<group>"; };
 		DE25E25419E7697A003B201E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DE2C4AE019DCB1EE00DF3DF7 /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2C4AE419DCB1EE00DF3DF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 			children = (
 				DE25E25419E7697A003B201E /* Podfile */,
 				DE315AEE19E102D000346027 /* TemplateIcon2x.png */,
+				DE2C4AED19DCB1EE00DF3DF7 /* Main.storyboard */,
 				DE2C4AE219DCB1EE00DF3DF7 /* Ribbit */,
 				DE2C4AFC19DCB1EE00DF3DF7 /* RibbitTests */,
 				DE2C4AE119DCB1EE00DF3DF7 /* Products */,
@@ -184,6 +188,8 @@
 				DE653E6819DDE94B006F9356 /* EditFriendsViewController.m */,
 				DE653E6A19DDFC41006F9356 /* FriendsViewController.h */,
 				DE653E6B19DDFC41006F9356 /* FriendsViewController.m */,
+				DE1A160D19EB467200434B2A /* GravatarUrlBuilder.h */,
+				DE1A160E19EB467200434B2A /* GravatarUrlBuilder.m */,
 				DE7AF19119E758EA003319E1 /* Images.xcassets */,
 				DEBABED119E1F4BD008AF7CE /* ImageViewController.h */,
 				DEBABED219E1F4BD008AF7CE /* ImageViewController.m */,
@@ -192,7 +198,6 @@
 				DE2C4AF219DCB1EE00DF3DF7 /* LaunchScreen.xib */,
 				DE5B17D019DCBA0300A92150 /* LoginViewController.h */,
 				DE5B17D119DCBA0300A92150 /* LoginViewController.m */,
-				DE2C4AED19DCB1EE00DF3DF7 /* Main.storyboard */,
 				DE5B17D319DCBA4F00A92150 /* SignupViewController.h */,
 				DE5B17D419DCBA4F00A92150 /* SignupViewController.m */,
 				DE2C4AE319DCB1EE00DF3DF7 /* Supporting Files */,
@@ -394,6 +399,7 @@
 				DEBABED319E1F4BD008AF7CE /* ImageViewController.m in Sources */,
 				DE5B17D519DCBA4F00A92150 /* SignupViewController.m in Sources */,
 				DE2C4AEC19DCB1EE00DF3DF7 /* ViewController.m in Sources */,
+				DE1A160F19EB467200434B2A /* GravatarUrlBuilder.m in Sources */,
 				DE2C4AE919DCB1EE00DF3DF7 /* AppDelegate.m in Sources */,
 				DE2C4AE619DCB1EE00DF3DF7 /* main.m in Sources */,
 				DE653E6C19DDFC41006F9356 /* FriendsViewController.m in Sources */,
@@ -429,6 +435,7 @@
 				DE2C4AEE19DCB1EE00DF3DF7 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Ribbit;
 			sourceTree = "<group>";
 		};
 		DE2C4AF219DCB1EE00DF3DF7 /* LaunchScreen.xib */ = {

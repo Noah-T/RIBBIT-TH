@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSArray *messages;
 @property (strong, nonatomic) PFObject *selectedMessage;
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 - (IBAction)logout:(id)sender;
 
