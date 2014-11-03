@@ -138,7 +138,7 @@ UIColor *disclosureColor;
     
     [self.tabBarController setSelectedIndex:0];
     
-    NSLog(@"this happened");
+   
     
 }
 
@@ -287,17 +287,8 @@ UIColor *disclosureColor;
                 } else {
                     //Everything was successful!
                     //this is a safe place to reset, otherwise it could interfere with asynchronous syncing
-                    //it will also preserve image/video and receipients if the failure is on the backend
-                    sleep(4);
-                    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
-                   hud.mode = MBProgressHUDModeAnnularDeterminate;
-                    hud.labelText = @"Message Sent";
-                    NSLog(@"success");
-                    [self.view addSubview:hud];
-
-                    [hud show:YES];
-                    sleep(2);
-                    [hud show:NO];
+                    //it will also preserve image/video and receipients if the failure is on the back end
+                    
 
                                         [self reset];
                     
